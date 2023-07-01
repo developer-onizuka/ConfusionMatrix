@@ -12,7 +12,7 @@ And at this time, suppose that the model to classify predicts that "all 100 of t
 Then, 98 out of 100 data are originally negative, so the accuracy rate is 98%. If you look only at the numerical value (accuracy), it looks like a pretty good number. However, none of the classification models were able to predict the positive data. I don't think it can be said that the classification accuracy is high with this. <br>
 If the data are imbalanced as described above, if you predict that "all are negative", the Accuracy value will be high even if there are multiple positive data. In order to deal with these problems, we refer to the following indicators called Precision, Recall, and F value.
 
-# 2. Precision
+# 2. Precision (for Eliminate waste)
 
 | |	Predict as a Spam Mail |	Predict as Not Spam Mail |
 | :--- | :--- | :--- |
@@ -27,7 +27,7 @@ Precision = TP / (TP + FP)
 If you get this value close to 100%, FP should be reduced. In other words, you should eliminate false positives by refurbishing the algorithm which should not mark non-spam as spam. <br>
 Precision can be calculated with **sklearn.metrics.precision_score()** in scikit-learn.
 
-# 3. Recall
+# 3. Recall (for Eliminate lost opportunities)
 
 | |	Predict as a Fraud |	Predict as Not Fraud |
 | :--- | :--- | :--- |
