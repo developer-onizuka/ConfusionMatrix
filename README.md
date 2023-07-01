@@ -1,6 +1,6 @@
 # ConfusionMatrix
 
-| |	Spam Mail |	Not Spam Mail |
+| |	Predict Spam Mail |	Predict Not Spam Mail |
 | :--- | :--- | :--- |
 | Actually Spam Mail | True Positive | False Nagative |
 | Actually Not Spam Mail | False Positive | True Nagative |
