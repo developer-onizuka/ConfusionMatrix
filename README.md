@@ -1,5 +1,4 @@
-# ConfusionMatrix
-Precision Versus Recall - Essential Metrics in Machine Learning
+Acuracy, Precision and Recall - Essential Metrics in Machine Learning
 
 # 1. Accuracy
 Accuracy is a ratio of the number of samples that match the classified class and the correct class. So we can define it as following:
