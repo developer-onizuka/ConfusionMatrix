@@ -23,13 +23,13 @@ Precision can be calculated with **sklearn.metrics.precision_score()** in scikit
 | Actually Fraud | **TP** (True Positive) | **FN** (False Nagative) |
 | Actually Not Fraud | **FP** (False Positive) | **TN** (True Nagative) |
 
-Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**” <br>
-Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.
+Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**” 
+
 ```
 Recall = TP / (TP + FN)
 ```
 If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do.
-
+Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.<br>
 
 # 3. Which index should you use ?
 I believe it depends on on the purpose of each model. <br>
