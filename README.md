@@ -13,7 +13,8 @@ Precision is a metric that gives you the proportion of true positives to the amo
 ```
 Precision = TP / (TP + FP)
 ```
-If you get this value close to 100%, FP should be reduced. In other words, you should eliminate false positives by refurbishing the algorithm which should not mark non-spam as spam.
+If you get this value close to 100%, FP should be reduced. In other words, you should eliminate false positives by refurbishing the algorithm which should not mark non-spam as spam. <br>
+Precision can be calculated with **sklearn.metrics.precision_score()** in scikit-learn.
 
 # 2. Recall
 
@@ -22,8 +23,8 @@ If you get this value close to 100%, FP should be reduced. In other words, you s
 | Actually Fraud | **TP** (True Positive) | **FN** (False Nagative) |
 | Actually Not Fraud | **FP** (False Positive) | **TN** (True Nagative) |
 
-Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**”
-
+Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**” <br>
+Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.
 ```
 Recall = TP / (TP + FN)
 ```
@@ -39,3 +40,9 @@ For example, low quality mail filtering algorithm might put the non-spam mail on
 Let's say the case of Cancer diagnosis. You must not like the case if you have a cancer in your stomach actually, but a doctor doesn't say anything and he or she says you're healthy. Of cource, doctors might sometimes have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
 But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. So you should take care of reducing the False Negative case rather than False Positive.<br>
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
+
+# 4. Accuracy
+Accuracy is a ratio of the number of samples that match the classified class and the correct class. So we can define it as following:
+```
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+```
