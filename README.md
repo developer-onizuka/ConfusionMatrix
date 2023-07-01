@@ -6,6 +6,11 @@ Accuracy is a ratio of the number of samples that match the classified class and
 ```
 Accuracy = (TP + TN) / (TP + TN + FP + FN)
 ```
+Accuracy is a popular metric because it is intuitive and easy to understand and interpret. However, if prediction results are evaluated only by Accuracy, there is a risk that a bad model may be mistakenly judged as a good model. <br>
+Suppose you have a positive/negative classification problem and out of 100 data, 2 are positive and 98 are negative.
+And at this time, suppose that the model to classify predicts that "all 100 of this data are negative". <br>
+Then, 98 out of 100 data are originally negative, so the accuracy rate is 98%. If you look only at the numerical value (accuracy), it looks like a pretty good number. However, none of the classification models were able to predict the positive data. I don't think it can be said that the classification accuracy is high with this. <br>
+If the data are imbalanced as described above, if you predict that "all are negative", the Accuracy value will be high even if there are multiple positive data. In order to deal with these problems, we refer to the following indicators called Precision, Recall, and F value.
 
 # 2. Precision
 
@@ -37,7 +42,7 @@ Recall = TP / (TP + FN)
 If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do. <br>
 Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.
 
-# 4. Which index should you use ?
+# 4. Which metric should you use ?
 I believe it depends on on the purpose of each model. <br>
 # Cases Presision is prefered
 For example, low quality mail filtering algorithm might put the non-spam mail on the spam mail box. I mean it is the case of False Negative. It is acceptable and you can improve it through some engineerings. But what do you think of if non-spam mail has gone to the spam mail box? This is very serious case and it is not torelate. So we should take care of False Positive case rather than False Negative and FP should be small as possible as you can. 
