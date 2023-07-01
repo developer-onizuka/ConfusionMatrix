@@ -34,8 +34,8 @@ Recall focuses on how good the model is at finding all the positives. Recall is 
 ```
 Recall = TP / (TP + FN)
 ```
-If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do.
-Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.<br>
+If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do. <br>
+Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.
 
 # 4. Which index should you use ?
 I believe it depends on on the purpose of each model. <br>
@@ -52,3 +52,8 @@ F-score (F-score) is **[the Harmonic mean](https://en.wikipedia.org/wiki/Harmoni
 In fact, Recall and Precision are in a trade-off relationship, and if one is raised, the other is lowered.
 For example, when actively predicting "Positive" to increase Recall, it is actually Positive but is mistaken as Negative (FN: False Negative). Since the number of (FP: False Positive) will increase, the Precision will decrease.In other words, if you try to raise Recall and say to everyone, "You have cancer!" <br>
 So, even if you look at Recall and Precision alone, you can't say whether the accuracy is good or bad. That's where the F value comes from. The F-value is the harmonic mean taking into account this trade-off.
+
+```
+F-Score = 2 / { (1/Precision) + (1/Recall) } = 2TP / (2TP + FP + FN)
+```
+F-Score can be calculated with **sklearn.metrics.f1_score()** in scikit-learn.<br>  
