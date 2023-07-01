@@ -48,7 +48,7 @@ But how do you feel, if the mistake is False Negative. It must be too late to go
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
 
 # 5. F-Score
-F-score (F-score) is the harmonic average of Recall and Precision. Also called F-measure or F1-score. <br>
+F-score (F-score) is **[the Harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean)** (reciprocal of mean of reciprocal) of Recall and Precision. Also called F-measure or F1-score. <br>
 In fact, Recall and Precision are in a trade-off relationship, and if one is raised, the other is lowered.
 For example, when actively predicting "Positive" to increase Recall, it is actually Positive but is mistaken as Negative (FN: False Negative). Since the number of (FP: False Positive) will increase, the Precision will decrease.In other words, if you try to raise Recall and say to everyone, "You have cancer!" <br>
 So, even if you look at Recall and Precision alone, you can't say whether the accuracy is good or bad. That's where the F value comes from. The F-value is the harmonic mean taking into account this trade-off.
