@@ -36,6 +36,6 @@ I believe it depends on on the purpose of each model. <br>
 For example, low quality mail filtering algorithm might put the non-spam mail on the spam mail box. I mean it is the case of False Negative. It is acceptable and you can improve it through some engineerings. But what do you think of if non-spam mail has gone to the spam mail box? This is very serious case and it is not torelate. So we should take care of False Positive case rather than False Negative and FP should be small as possible as you can. 
 
 # Cases Recall is prefered
-Let's say the case of Cancer diagnosis. You must not like the case if you have a cancer in your stomach actually but a doctor doesn't say anything and it says you're healthy. Of cource, doctors might have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
+Let's say the case of Cancer diagnosis. You must not like the case if you have a cancer in your stomach actually, but a doctor doesn't say anything and he or she says you're healthy. Of cource, doctors might have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
 But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. SO you should take care of reducing the False Negative case rather than False Positive.<br>
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
