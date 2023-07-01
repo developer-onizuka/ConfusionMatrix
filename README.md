@@ -1,7 +1,13 @@
 # ConfusionMatrix
 Precision Versus Recall - Essential Metrics in Machine Learning
 
-# 1. Precision
+# 1. Accuracy
+Accuracy is a ratio of the number of samples that match the classified class and the correct class. So we can define it as following:
+```
+Accuracy = (TP + TN) / (TP + TN + FP + FN)
+```
+
+# 2. Precision
 
 | |	Predict as a Spam Mail |	Predict as Not Spam Mail |
 | :--- | :--- | :--- |
@@ -16,7 +22,7 @@ Precision = TP / (TP + FP)
 If you get this value close to 100%, FP should be reduced. In other words, you should eliminate false positives by refurbishing the algorithm which should not mark non-spam as spam. <br>
 Precision can be calculated with **sklearn.metrics.precision_score()** in scikit-learn.
 
-# 2. Recall
+# 3. Recall
 
 | |	Predict as a Fraud |	Predict as Not Fraud |
 | :--- | :--- | :--- |
@@ -31,7 +37,7 @@ Recall = TP / (TP + FN)
 If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do.
 Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.<br>
 
-# 3. Which index should you use ?
+# 4. Which index should you use ?
 I believe it depends on on the purpose of each model. <br>
 # Cases Presision is prefered
 For example, low quality mail filtering algorithm might put the non-spam mail on the spam mail box. I mean it is the case of False Negative. It is acceptable and you can improve it through some engineerings. But what do you think of if non-spam mail has gone to the spam mail box? This is very serious case and it is not torelate. So we should take care of False Positive case rather than False Negative and FP should be small as possible as you can. 
@@ -41,8 +47,8 @@ Let's say the case of Cancer diagnosis. You must not like the case if you have a
 But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. So you should take care of reducing the False Negative case rather than False Positive.<br>
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
 
-# 4. Accuracy
-Accuracy is a ratio of the number of samples that match the classified class and the correct class. So we can define it as following:
-```
-Accuracy = (TP + TN) / (TP + TN + FP + FN)
-```
+# 5. F-Score
+F-score (F-score) is the harmonic average of Recall and Precision. Also called F-measure or F1-score. <br>
+In fact, Recall and Precision are in a trade-off relationship, and if one is raised, the other is lowered.
+For example, when actively predicting "Positive" to increase Recall, it is actually Positive but is mistaken as Negative (FN: False Negative). Since the number of (FP: False Positive) will increase, the Precision will decrease.In other words, if you try to raise Recall and say to everyone, "You have cancer!" <br>
+So, even if you look at Recall and Precision alone, you can't say whether the accuracy is good or bad. That's where the F value comes from. The F-value is the harmonic mean taking into account this trade-off.
