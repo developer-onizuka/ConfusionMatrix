@@ -37,5 +37,5 @@ For example, low quality mail filtering algorithm might put the non-spam mail on
 
 # Cases Recall is prefered
 Let's say the case of Cancer diagnosis. You must not like the case if you have a cancer in your stomach actually, but a doctor doesn't say anything and he or she says you're healthy. Of cource, doctors might sometimes have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
-But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. SO you should take care of reducing the False Negative case rather than False Positive.<br>
+But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. So you should take care of reducing the False Negative case rather than False Positive.<br>
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
