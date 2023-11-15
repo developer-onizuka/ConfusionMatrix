@@ -61,3 +61,7 @@ So, even if you look at Recall and Precision alone, you can't say whether the ac
 F-Score = 2 / { (1/Precision) + (1/Recall) } = 2TP / (2TP + FP + FN)
 ```
 F-Score can be calculated with **sklearn.metrics.f1_score()** in scikit-learn.<br>  
+
+# 6. Resampling
+- Under sample majority class
+- Over sample minority class
