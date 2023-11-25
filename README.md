@@ -65,3 +65,9 @@ F-Score can be calculated with **sklearn.metrics.f1_score()** in scikit-learn.<b
 # 6. Resampling
 - Under sample majority class
 - Over sample minority class
+
+# 7. When to Use ROC vs. Precision-Recall Curves?
+Generally, the use of ROC curves and precision-recall curves are as follows:
+
+ROC curves should be used when there are roughly equal numbers of observations for each class.
+Precision-Recall curves should be used when there is a moderate to large class imbalance.
