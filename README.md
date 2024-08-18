@@ -30,7 +30,7 @@ Precision can be calculated with **sklearn.metrics.precision_score()** in scikit
 
 | |	Predict as a Fraud |	Predict as Not Fraud |
 | :--- | :--- | :--- |
-| Actually Fraud | **TP** (True Positive) | **FN** (False Nagative) <br>-> opportunity |
+| Actually Fraud | **TP** (True Positive) | **FN** (False Nagative) <br>-> lost opportunity |
 | Actually Not Fraud | **FP** (False Positive) | **TN** (True Nagative) |
 
 Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**” 
