@@ -8,7 +8,7 @@ Accuracy = (TP + TN) / (TP + TN + FP + FN)
 Accuracy is a popular metric because it is intuitive and easy to understand and interpret. However, if prediction results are evaluated only by Accuracy, there is a risk that a bad model may be mistakenly judged as a good model. <br>
 Suppose you have a positive/negative classification model and a dataset including two positive data and 98 negative data, actually.
 And at this time, suppose that the model to classify predicts that "all 100 of this data are negative". <br>
-The accuracy rate is definitely 98% because 98 out of 100 data are originally negative as you prepared. If you look only at the numerical value (accuracy), it looks like a pretty good number. However, none of the classification models were able to predict the positive data. It can not be said that the classification accuracy is high with this. <br>
+The accuracy rate is definitely 98% because 98 out of 100 data are originally negative as you prepared. If you look only at the numerical value (accuracy), it looks like a pretty good number. However, the classification models could not perform any meaningful prediction. It can not be said that the classification accuracy is high with this. <br>
 If the data are imbalanced as described above and is predicted that "all are negative", the Accuracy value will be high against one's will. In order to deal with these problems, we refer to the following indicators called Precision, Recall, and F-Score.
 
 # 2. Precision (for Eliminate waste)
