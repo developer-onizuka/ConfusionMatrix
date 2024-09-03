@@ -49,7 +49,7 @@ For example, low quality mail filtering algorithm might put the spam mail on you
 # Cases Recall is prefered
 Let's say the case of Cancer diagnosis. You must not like the case if you have a cancer in your stomach actually, but a doctor doesn't say anything and he or she says you're healthy. Of cource, doctors might sometimes have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
 But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. So you should take care of reducing the False Negative case rather than False Positive.<br>
-Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.
+Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.<br> Emphasizes identifying as many actual failures as possible (recall).
 
 # 5. F-Score
 F-score is **[the Harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean)** (reciprocal of mean of reciprocal) of Recall and Precision. Also called F-measure or F1-score. <br>
