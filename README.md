@@ -73,3 +73,6 @@ Generally, the use of ROC curves and precision-recall curves are as follows:
 - Precision-Recall curves should be used when there is a moderate to large class imbalance.
   
 > https://www.softbanktech.co.jp/special/blog/dx_station/2022/0016/
+
+# 8. Drift
+An example of conceptual drift is when a machine learning model for detecting spam on SNS was put into operation and was initially able to detect it with a high accuracy rate, but after half a year, it could hardly be detected. Let's assume that the cause is that spammers have come up with new ways to avoid being detected as spam (assuming the distribution of input data remains unchanged). In other words, the cause of the drift is that the concept of spam, which is the correct label (target variable), has changed.
