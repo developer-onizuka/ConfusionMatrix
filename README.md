@@ -1,6 +1,6 @@
-# Confusion Matrixの考え方
+# AWS SageMaker Autopilotが提供するConfusion Matrixの考え方
 
-ここでは、SageMaker Autopilotが提供するメトリクスとレポートで扱われるConfusion Matrixについて解説します。メトリクスとレポートには、Confusion Matrix、Area under the receiver operating characteristic (AUC-ROC) 曲線および Area under the precision-recall curve (AUC-PR) 曲線が含まれるのですが、Confusion Matrix は、分類問題の結果をまとめた行列（Matrix）のことで、なかなかその意味と活用の方法を理解することが難しいので、実例とともに解説したものになります。
+ここでは、AWS SageMaker Autopilotが提供するメトリクスとレポートで扱われるConfusion Matrixについて解説します。メトリクスとレポートには、Confusion Matrix、Area under the receiver operating characteristic (AUC-ROC) 曲線および Area under the precision-recall curve (AUC-PR) 曲線が含まれるのですが、Confusion Matrix は、分類問題の結果をまとめた行列（Matrix）のことで、なかなかその意味と活用の方法を理解することが難しいので、実例とともに解説したものになります。
 
 # 主な用語
 Acuracy, Precision and Recall - Essential Metrics in Machine Learning
