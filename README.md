@@ -18,6 +18,7 @@ Accuracy = (TP + TN) / (TP + TN + FP + FN)
 準備したとおり、100 個のデータのうち 98 個が元々陰性であるため、精度は 98% です。この精度だけ見るとかなり良い数値に見えます。ただし、分類モデルは意味のある予測を実行できていないことがわかります。 <br>
 このようにデータが偏っていて「全て陰性」と予測されると、意に反して精度の値が高くなってしまいます。これらの問題に対処するために、Precision、Recall、および F-Score と呼ばれる次の指標を参照します。
 
+---
 Accuracy is a popular metric because it is intuitive and easy to understand and interpret. However, if prediction results are evaluated only by Accuracy, there is a risk that a bad model may be mistakenly judged as a good model. <br>
 Suppose you have a positive/negative classification model and a dataset including two positive data and 98 negative data, actually.
 And at this time, suppose that the model to classify predicts that "all 100 of this data are negative". <br>
@@ -31,7 +32,7 @@ If the data are imbalanced as described above and is predicted that "all are neg
 | Actually Spam Mail | **TP** (True Positive) | **FN** (False Nagative) |
 | Actually Not Spam Mail | **FP** (False Positive) <br>-> waste | **TN** (True Nagative) |
 
-Precisionは、モデルが予測する陽性者の総量に対する真の陽性の割合を示す指標です。 「**私たちが行ったすべての陽性な予測のうち、いくつ正しく分類ができたか?**」という質問のように解釈できます。
+Precisionは、モデルが予測する陽性者の総量に対する真の陽性の割合を示す指標です。 「**すべての陽性な予測のうち、いくつ正しく分類ができたか?**」という質問のように解釈できます。
 
 ---
 Precision is a metric that gives you the proportion of true positives to the amount of total positives that the model predicts. It answers the question “**Out of all the positive predictions we made, how many were true?**”
@@ -53,11 +54,17 @@ Precision can be calculated with **sklearn.metrics.precision_score()** in scikit
 | Actually Fraud | **TP** (True Positive) | **FN** (False Nagative) <br>-> lost opportunity |
 | Actually Not Fraud | **FP** (False Positive) | **TN** (True Nagative) |
 
+Recallは、「**真であると予測されるべきすべてのデータのうち、いくつが真であると正しく予測されたか?**」という質問のように解釈できます。
+
+---
 Recall focuses on how good the model is at finding all the positives. Recall is also called true positive rate and answers the question “**Out of all the data points that should be predicted as true, how many did we correctly predict as true?**” 
 
 ```
 Recall = TP / (TP + FN)
 ```
+この値が 100% に近づくと、FN を減らす必要があります。不正行為の検出がうまく機能しない場合、詐欺行為によって経済的な損失が伴ってしまいます。したがって、偽陰性は可能な限り 0 である必要があります。Recallは、scikit-learn の **sklearn.metrics.recall_score()** で計算できます。
+
+---
 If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do. <br>
 Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn.
 
