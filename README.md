@@ -40,7 +40,7 @@ Precision is a metric that gives you the proportion of true positives to the amo
 ```
 Precision = TP / (TP + FP)
 ```
-この値が 100% に近づくと、FP が減少するはずです。言い換えれば、スパム以外をスパムとしてマークしないようアルゴリズムを刷新することで、誤検知を排除する必要があります。 <br>
+この値が 100% に近づけるには、FP を小さくする必要があります。言い換えれば、スパム以外をスパムとしてマークしないようアルゴリズムを刷新することで、誤検知を排除する必要があります。 <br>
 Precisionは、scikit-learn の **sklearn.metrics.precision_score()** で計算できます。
 
 ---
@@ -62,7 +62,7 @@ Recall focuses on how good the model is at finding all the positives. Recall is 
 ```
 Recall = TP / (TP + FN)
 ```
-この値が 100% に近づくと、FN を減らす必要があります。不正行為の検出がうまく機能しない場合、詐欺行為によって経済的な損失が伴ってしまいます。したがって、偽陰性は可能な限り 0 である必要があります。Recallは、scikit-learn の **sklearn.metrics.recall_score()** で計算できます。
+この値を 100% に近づけるには、FN を減らす必要があります。不正行為の検出がうまく機能しない場合、詐欺行為によって経済的な損失が伴ってしまいます。したがって、偽陰性は可能な限り 0 である必要があります。Recallは、scikit-learn の **sklearn.metrics.recall_score()** で計算できます。
 
 ---
 If you get this value close to 100%, FN should be reduced. If the fraud detection does not work well, then it goes through your bank account and defraud your property. So, False Negative should be 0 as possible as you can do. <br>
@@ -70,18 +70,28 @@ Recall can be calculated with **sklearn.metrics.recall_score()** in scikit-learn
 
 # 4. Which metric should you use ?
 I believe it depends on on the purpose of each model. <br>
+
 # Cases Presision is prefered
+たとえば、低品質のメール フィルタリング アルゴリズムにより、スパム メールがメール ボックスに入れられる可能性があります。つまり、偽陰性の場合です。なんだかんだで、これは実は許容できるものであり、なんらかのエンジニアリングによって改善することができます。しかし、スパムメールではないメールがスパムメールボックスに入ってしまうことは、実は非常に問題で、許容されるものではありません。したがって、このケースでは、偽陰性ではなく偽陽性のケースに注意する必要があり、FP は可能な限り小さくする必要があります。
+
+---
 For example, low quality mail filtering algorithm might put the spam mail on your mail box. I mean it is the case of False Negative. It is acceptable and you can improve it through some engineerings. But what do you think of if non-spam mail has gone to the spam mail box? This is very serious case and it is not torelate. So we should take care of False Positive case rather than False Negative and FP should be small as possible as you can. 
 
 # Cases Recall is prefered
+がん診断の場合を考えてみましょう。もちろん、医師が間違いを犯すこともあるでしょう。ガンではないのにがんという診断が出た場合は、死ぬわけではないので許容できるかもしれません。しかし、その間違いが偽陰性だったらどう思いますか。病院に行くにはもう手遅れでしょう。がんを検出することを想定したシステムでは、起こり得る最悪の結果を考慮する必要があるので、Recallを指標にしたモデルの検証が必要になってきます。<br>
+
+---
 Let's say the case of Cancer diagnosis (Of course fraud is also fine). You must not like the case if you have a cancer in your stomach actually, but a doctor doesn't say anything and he or she says you're healthy. Of cource, doctors might sometimes have mistakes. If the mistake is False Positive, it can be toralate because you're not gonna die.<br>
 But how do you feel, if the mistake is False Negative. It must be too late to go to hospital. So you should take care of reducing the False Negative case rather than False Positive.<br>
 Again, you should think of the worst possible outcome in a system  supposed to be detecting cancer. You want to be airing on the side of false positive.<br> 
 
 # 5. F-Score
+F スコアは、再現率と適合率の **[調和平均](https://en.wikipedia.org/wiki/Harmonic_mean)** (平均の逆数の逆数) です。 F 値または F1 スコアとも呼ばれます。実は、RecallとPrecisionはトレードオフの関係にあり、どちらかが上がるともう一方が下がります。たとえば、Recall を高めるために積極的に陽性と予測すると、実際には陰性であるにもかかわらず、陽性と誤認される傾向が高まります。この結果、偽陽性の数が増えるので、Precisionは下がります。そのため、Recall と Precision だけを見ても、モデルが良いか悪いかを判断することはできないこともあるため、F値を用いることがあります。 まとめると、F 値は、このトレードオフを考慮した調和平均です。
+
+---
 F-score is **[the Harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean)** (reciprocal of mean of reciprocal) of Recall and Precision. Also called F-measure or F1-score. <br>
 In fact, Recall and Precision are in a trade-off relationship, and if one is raised, the other is lowered.
-For example, when actively predicting "Positive" to increase Recall, it is actually Positive but is mistaken as Negative (FN: False Negative). Since the number of (FP: False Positive) will increase, the Precision will decrease.In other words, if you try to raise Recall and say to everyone, "You have cancer!" <br>
+For example, when actively predicting "Positive" to increase Recall, it is actually Negative but is mistaken as Positive (FP: False Positive). Since the number of (FP: False Positive) will increase, the Precision will decrease.In other words, if you try to raise Recall and say to everyone, "You have cancer!" <br>
 So, even if you look at Recall and Precision alone, you can't say whether the accuracy is good or bad. That's where the F value comes from. The F-value is the harmonic mean taking into account this trade-off.
 
 ```
@@ -102,4 +112,7 @@ Generally, the use of ROC curves and precision-recall curves are as follows:
 > https://www.softbanktech.co.jp/special/blog/dx_station/2022/0016/
 
 # 8. Drift
+概念的ドリフトの例としては、SNS上のスパムを検出するための機械学習モデルを運用したところ、当初は高い精度で検出できていたのに、半年後にはほとんど検出できなくなったというケースが挙げられます。原因は、スパマーがスパムとして検出されることを回避するための新しい方法を考え出したことであると仮定しましょう (入力データの分布は変わらないと仮定します)。つまり、ドリフトの原因は、正しいラベル（対象変数）であるスパムの概念が変化したことにあると考えられます。
+
+---
 An example of conceptual drift is when a machine learning model for detecting spam on SNS was put into operation and was initially able to detect it with a high accuracy rate, but after half a year, it could hardly be detected. Let's assume that the cause is that spammers have come up with new ways to avoid being detected as spam (assuming the distribution of input data remains unchanged). In other words, the cause of the drift is that the concept of spam, which is the correct label (target variable), has changed.
