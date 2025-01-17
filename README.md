@@ -1,10 +1,23 @@
+# Confusion Matrixの考え方
+
+ここでは、SageMaker Autopilotが提供するメトリクスとレポートで扱われるConfusion Matrixについて解説します。メトリクスとレポートには、Confusion Matrix、Area under the receiver operating characteristic (AUC-ROC) 曲線および Area under the precision-recall curve (AUC-PR) 曲線が含まれるのですが、Confusion Matrix は、分類問題の結果をまとめた行列（Matrix）のことで、なかなかその意味と活用の方法を理解することが難しいので、実例とともに解説したものになります。
+
+# 主な用語
 Acuracy, Precision and Recall - Essential Metrics in Machine Learning
 
 # 1. Accuracy
+精度は、分類されたクラスと正しいクラスに一致するサンプルの数の比率です。したがって、次のように定義できます。
+
+---
 Accuracy is a ratio of the number of samples that match the classified class and the correct class. So we can define it as following:
 ```
 Accuracy = (TP + TN) / (TP + TN + FP + FN)
 ```
+精度は直感的で理解しやすく解釈しやすいため、とても扱いやすいの指標の一つです。しかし、精度のみで予測結果を評価すると、悪いモデルを良いモデルと誤判定してしまう危険性があります。 <br>
+実際に、陽性/陰性分類モデルと、2 つの陽性データと 98 の陰性データを含むデータセットがあるとします。そしてこのとき、分類するモデルが「このデータ 100 個すべてが陰性である」と予測したとします。
+準備したとおり、100 個のデータのうち 98 個が元々陰性であるため、精度は 98% です。この精度だけ見るとかなり良い数値に見えます。ただし、分類モデルは意味のある予測を実行できていないことがわかります。 <br>
+このようにデータが偏っていて「全て陰性」と予測されると、意に反して精度の値が高くなってしまいます。これらの問題に対処するために、Precision、Recall、および F-Score と呼ばれる次の指標を参照します。
+
 Accuracy is a popular metric because it is intuitive and easy to understand and interpret. However, if prediction results are evaluated only by Accuracy, there is a risk that a bad model may be mistakenly judged as a good model. <br>
 Suppose you have a positive/negative classification model and a dataset including two positive data and 98 negative data, actually.
 And at this time, suppose that the model to classify predicts that "all 100 of this data are negative". <br>
@@ -18,11 +31,18 @@ If the data are imbalanced as described above and is predicted that "all are neg
 | Actually Spam Mail | **TP** (True Positive) | **FN** (False Nagative) |
 | Actually Not Spam Mail | **FP** (False Positive) <br>-> waste | **TN** (True Nagative) |
 
+Precisionは、モデルが予測する陽性者の総量に対する真の陽性の割合を示す指標です。 「**私たちが行ったすべての陽性な予測のうち、いくつ正しく分類ができたか?**」という質問のように解釈できます。
+
+---
 Precision is a metric that gives you the proportion of true positives to the amount of total positives that the model predicts. It answers the question “**Out of all the positive predictions we made, how many were true?**”
 
 ```
 Precision = TP / (TP + FP)
 ```
+この値が 100% に近づくと、FP が減少するはずです。言い換えれば、スパム以外をスパムとしてマークしないようアルゴリズムを刷新することで、誤検知を排除する必要があります。 <br>
+Precisionは、scikit-learn の **sklearn.metrics.precision_score()** で計算できます。
+
+---
 If you get this value close to 100%, FP should be reduced. In other words, you should eliminate false positives by refurbishing the algorithm which should not mark non-spam as spam. <br>
 Precision can be calculated with **sklearn.metrics.precision_score()** in scikit-learn.
 
