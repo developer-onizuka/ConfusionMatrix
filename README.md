@@ -99,11 +99,13 @@ F-Score = 2 / { (1/Precision) + (1/Recall) } = 2TP / (2TP + FP + FN)
 ```
 F-Score can be calculated with **sklearn.metrics.f1_score()** in scikit-learn.<br>  
 
-# 6. Resampling
-- Under sample majority class
-- Over sample minority class
+# 6. When to Use ROC vs. Precision-Recall Curves?
+一般に、ROC曲線とPrecision-Recall曲線の使用方法は次のとおりです。
 
-# 7. When to Use ROC vs. Precision-Recall Curves?
+- ROC曲線は、各クラスの観測値の数がほぼ等しい場合に使用する必要があります。
+- Precision-Recall曲線は、中程度から大規模なクラスの不均衡がある場合に使用する必要があります。
+
+---
 Generally, the use of ROC curves and precision-recall curves are as follows:
 
 - ROC curves should be used when there are roughly equal numbers of observations for each class.
@@ -111,7 +113,7 @@ Generally, the use of ROC curves and precision-recall curves are as follows:
   
 > https://www.softbanktech.co.jp/special/blog/dx_station/2022/0016/
 
-# 8. Drift
+# 7. Drift
 概念的ドリフトの例としては、SNS上のスパムを検出するための機械学習モデルを運用したところ、当初は高い精度で検出できていたのに、半年後にはほとんど検出できなくなったというケースが挙げられます。原因は、スパマーがスパムとして検出されることを回避するための新しい方法を考え出したことであると仮定しましょう (入力データの分布は変わらないと仮定します)。つまり、ドリフトの原因は、正しいラベル（対象変数）であるスパムの概念が変化したことにあると考えられます。
 
 ---
