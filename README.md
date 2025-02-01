@@ -118,3 +118,9 @@ Generally, the use of ROC curves and precision-recall curves are as follows:
 
 ---
 An example of conceptual drift is when a machine learning model for detecting spam on SNS was put into operation and was initially able to detect it with a high accuracy rate, but after half a year, it could hardly be detected. Let's assume that the cause is that spammers have come up with new ways to avoid being detected as spam (assuming the distribution of input data remains unchanged). In other words, the cause of the drift is that the concept of spam, which is the correct label (target variable), has changed.
+
+
+ # 8. Summary
+AWS SageMaker Autopilotが提供するConfusion Matrix（混同行列）は、分類問題の結果を視覚化するための重要なツールです。
+混同行列は、実際のクラスと予測されたクラスの結果を行列として表示し、間違った時の罪深さを数値として表現できる考え方です。
+PrecisionとRecallの調和平均を示すF-Scoreや、ROC曲線、Precision-Recall曲線などのメトリクスを活用し、モデルの有用性を確かめる指標として使うことができます。
