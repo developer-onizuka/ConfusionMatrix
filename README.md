@@ -125,24 +125,18 @@ AWS SageMaker Autopilotが提供するConfusion Matrix（混同行列）は、�
 混同行列は、実際のクラスと予測されたクラスの結果を行列として表示し、間違った時の罪深さを数値として表現できる考え方です。
 PrecisionとRecallの調和平均を示すF-Scoreや、ROC曲線、Precision-Recall曲線などのメトリクスを活用し、モデルの有用性を確かめる指標として使うことができます。
 
----
-The Confusion Matrix provided by AWS SageMaker Autopilot is an essential tool for visualizing the results of classification problems. The confusion matrix displays the results of actual classes and predicted classes in a matrix, allowing the numerical representation of the severity of misclassifications. By utilizing metrics such as the F-Score, which shows the harmonic mean of Precision and Recall, ROC curves, and Precision-Recall curves, it serves as an indicator to verify the usefulness of a model.
-
-
-
 本番環境にデプロイされたモデルを、特徴量のスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。特徴量の分布に変化が発生すると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
-
----
-Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
-
-><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
-
-
 
 Seabornと呼ばれるHeatMapを使うことで、実際の値がどのカテゴリに分類されたかを割合として表現することができ、単なるモデルの精度だけの検証に留まらずに、分類器の機能や品質を検証可能である。
 
 ---
+The Confusion Matrix provided by AWS SageMaker Autopilot is an essential tool for visualizing the results of classification problems. The confusion matrix displays the results of actual classes and predicted classes in a matrix, allowing the numerical representation of the severity of misclassifications. By utilizing metrics such as the F-Score, which shows the harmonic mean of Precision and Recall, ROC curves, and Precision-Recall curves, it serves as an indicator to verify the usefulness of a model.
+
+Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
+
+<img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
+
 By using a HeatMap called Seaborn, it is possible to express the proportion of the actual value into which category it is classified, and it is possible to verify not only the accuracy of the model itself but also the functionality and quality of the meaningful classifier.<br>
 
->![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
+![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
 
