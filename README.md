@@ -121,7 +121,6 @@ An example of conceptual drift is when a machine learning model for detecting sp
 
 
  # 8. Summary
->![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
 AWS SageMaker Autopilotが提供するConfusion Matrix（混同行列）は、分類問題の結果を視覚化するための重要なツールです。
 混同行列は、実際のクラスと予測されたクラスの結果を行列として表示し、間違った時の罪深さを数値として表現できる考え方です。
 PrecisionとRecallの調和平均を示すF-Scoreや、ROC曲線、Precision-Recall曲線などのメトリクスを活用し、モデルの有用性を確かめる指標として使うことができます。
@@ -134,4 +133,5 @@ Detect and monitor skew and drift in both features and target distribution of mo
 By using a HeatMap called Seaborn, it is possible to express the proportion of the actual value into which category it is classified, and it is possible to verify not only the accuracy of the model itself but also the functionality and quality of the meaningful classifier.<br>
 >Seabornと呼ばれるHeatMapを使うことで、実際の値がどのカテゴリに分類されたかを割合として表現することができ、単なるモデルの精度だけの検証に留まらずに、分類器の機能や品質を検証可能である。
 
+>![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
 
