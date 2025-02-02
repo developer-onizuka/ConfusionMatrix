@@ -121,6 +121,17 @@ An example of conceptual drift is when a machine learning model for detecting sp
 
 
  # 8. Summary
+>![heatmap.png](https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/heatmap.png)
 AWS SageMaker Autopilotが提供するConfusion Matrix（混同行列）は、分類問題の結果を視覚化するための重要なツールです。
 混同行列は、実際のクラスと予測されたクラスの結果を行列として表示し、間違った時の罪深さを数値として表現できる考え方です。
 PrecisionとRecallの調和平均を示すF-Scoreや、ROC曲線、Precision-Recall曲線などのメトリクスを活用し、モデルの有用性を確かめる指標として使うことができます。
+
+Detect and monitor skew and drift in both features and target distribution of models deployed to production environments. If changes in these distributions are detected, the model's performance may start to degrade, so production data should be used to evaluate the model. Predictive models need to be continually retrained and redeployed to accommodate different drift scenarios.<br>
+>本番環境にデプロイされたモデルを、特徴量のスキューとドリフト(時代の変化に伴うデータや特徴量の変化)を検出し、モニタリングする。特徴量の分布に変化が発生すると、モデルのパフォーマンスが低下し始める可能性があるため、本番環境データを使用してモデルを評価する必要がある。様々なドリフトシナリオに対応するため、予測モデルを継続して再訓練し、再デプロイを行う必要がある。
+
+><img src="https://github.com/developer-onizuka/MachineLearningOnAWS/blob/main/ModelMonitoring.png" width="720">
+
+By using a HeatMap called Seaborn, it is possible to express the proportion of the actual value into which category it is classified, and it is possible to verify not only the accuracy of the model itself but also the functionality and quality of the meaningful classifier.<br>
+>Seabornと呼ばれるHeatMapを使うことで、実際の値がどのカテゴリに分類されたかを割合として表現することができ、単なるモデルの精度だけの検証に留まらずに、分類器の機能や品質を検証可能である。
+
+
